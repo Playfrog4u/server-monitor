@@ -19,7 +19,7 @@
    
 ## Description
   
-A simple project to monitor URLs for when it stops responding.
+A simple project to monitor URLs for when it stops responding and comes back online. Sends a webhook to Slack incoming webhook apps.
   
 
 ## Installation & Configuration
