@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Service Name",
+        "url": "service-url",
+        "fetchTime": 30000
+    }
+]
