@@ -2,6 +2,7 @@
     "apps" : [{
         "name" : "Server Monitor",
         "script"    : "index.js",
-        "autorestart": true
+        "autorestart": true,
+        "watch": true
     }]
 }
