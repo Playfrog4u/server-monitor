@@ -33,7 +33,7 @@ removeDownedURL = (url) => {
         let minutes = (hours % 1) * 60;
         let secs = (minutes % 1) * 60;
         [days, hours, minutes, secs] = [Math.floor(days), Math.floor(hours), Math.floor(minutes), Math.floor(secs)];
-        let message = `:tada: ${url.name} is back online :tada:\nWas down for ${minutes} minutes and ${secs} seconds :cry:`;
+        let message = `:tada: ${url.name} is back online :tada:\nWas down for ${hours} hours, ${minutes} minutes, and ${secs} seconds :cry:`;
         downURLs.splice(index, 1);
         sendWebhook(message);
     }
