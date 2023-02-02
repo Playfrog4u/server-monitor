@@ -6,9 +6,10 @@ const webhooks = require('./configs/webhooks.json');
 let downURLs = [];
 
 const fetchURL = async (url2Check) => {
-    axios.get(url2Check.url).then(() => {
+    axios.get(url2Check.url, {timeout: 0}).then(() => {
         removeDownedURL(url2Check);
-    }).catch(() => {
+    }).catch((error) => {
+        console.log(error)
         addDownedURL(url2Check);
     });
     setTimeout(() => {
