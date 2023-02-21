@@ -9,8 +9,10 @@ const fetchURL = async (url2Check) => {
     axios.get(url2Check.url, {timeout: 0}).then(() => {
         removeDownedURL(url2Check);
     }).catch((error) => {
-        console.log(error)
-        addDownedURL(url2Check);
+        console.log(error);
+        if(!url2Check.currentDowns) url2Check.currentDowns = 0;
+        url2Check.currentDowns++;
+        if(url2Check.currentDowns == url2Check.downLimit) addDownedURL(url2Check);
     });
     setTimeout(() => {
         fetchURL(url2Check)
@@ -28,6 +30,7 @@ addDownedURL = (url) => {
 removeDownedURL = (url) => {
     let index = downURLs.findIndex(x => x.url === url.url);
     if (index === 0) {
+        url.currentDowns = 0;
         let diffTime = Math.abs(new Date().valueOf() - downURLs[index].downedTime.valueOf());
         let days = diffTime / (24 * 60 * 60 * 1000);
         let hours = (days % 1) * 24;

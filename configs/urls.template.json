@@ -2,6 +2,7 @@
     {
         "name": "Service Name",
         "url": "service-url",
-        "fetchTime": 30000
+        "fetchTime": 30000,
+        "downLimit": 2
     }
 ]
