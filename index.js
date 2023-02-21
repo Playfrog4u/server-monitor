@@ -28,9 +28,9 @@ addDownedURL = (url) => {
     }
 }
 removeDownedURL = (url) => {
+    url.currentDowns = 0;
     let index = downURLs.findIndex(x => x.url === url.url);
     if (index === 0) {
-        url.currentDowns = 0;
         let diffTime = Math.abs(new Date().valueOf() - downURLs[index].downedTime.valueOf());
         let days = diffTime / (24 * 60 * 60 * 1000);
         let hours = (days % 1) * 24;
